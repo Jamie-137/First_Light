@@ -10,21 +10,20 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
+
+import java.util.function.Function;
 
 public class FirstLightItems {
 
-    public static final Item LIGHT_SHARD = registerItem("light_shard", new Item.Settings());
-    public static final Item DARK_CRUX = registerItem("dark_crux", new Item.Settings());
+    public static final Item LIGHT_SHARD = registerItem("light_shard", Item::new);
+    public static final Item DARK_CRUX = registerItem("dark_crux", Item::new);
 
-    public static final Item CHARGED_CRUX = registerItem("charged_crux", new ChargedCruxItem(new Item.Settings()));
+    public static final Item CHARGED_CRUX = registerItem("charged_crux", ChargedCruxItem::new);
 
-    private static Item registerItem(String name, Item.Settings itemSettings) {
-        Identifier id = Identifier.of(First_light.MOD_ID, name);
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
-        Item.Settings settings = itemSettings.registryKey(key);
 
-        return Registry.register(Registries.ITEM, key, new Item(settings));
+    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
+        return Registry.register(Registries.ITEM, Identifier.of(First_light.MOD_ID, name),
+                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(First_light.MOD_ID, name)))));
     }
 
     public static void registerModItems() {
@@ -33,6 +32,10 @@ public class FirstLightItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(DARK_CRUX);
             fabricItemGroupEntries.add(LIGHT_SHARD);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
+            fabricItemGroupEntries.add(CHARGED_CRUX);
         });
     }
 }

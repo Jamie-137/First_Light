@@ -19,6 +19,7 @@ public class FirstLightGroups {
                     .entries((displayContext, entries) -> {
                         entries.add(FirstLightItems.LIGHT_SHARD);
                         entries.add(FirstLightItems.DARK_CRUX);
+                        entries.add(FirstLightItems.CHARGED_CRUX);
                     }).build());
 
     public static final ItemGroup FIRST_LIGHT_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
