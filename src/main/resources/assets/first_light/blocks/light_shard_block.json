@@ -1,0 +1,11 @@
+{
+
+  "model": {
+
+    "type": "minecraft:model",
+
+    "model": "first_light:block/light_shard_block"
+
+  }
+
+}

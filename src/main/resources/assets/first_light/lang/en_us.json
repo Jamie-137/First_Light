@@ -1,0 +1,8 @@
+{
+  "item.first_light.light_shard": "Shard of Light",
+  "item.first_light.dark_crux": "Crux of Darkness",
+  "item.first_light.crux_block": "Crux Block",
+  "item.first_light.light_shard_block": "Block of Light",
+  "itemgroup.first_light.first_light_items": "First Light Items",
+  "itemgroup.first_light.first_light_blocks": "First Light Blocks"
+}

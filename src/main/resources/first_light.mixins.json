@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.jamie137.first_light.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "First_lightMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

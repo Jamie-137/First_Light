@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "first_light",
+  "version": "${version}",
+  "name": "First Light",
+  "description": "Harness the powers of light and dark and transcend death itself.",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/first_light/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "io.github.jamie137.first_light.client.First_lightDataGenerator"
+    ],
+    "client": [
+      "io.github.jamie137.first_light.client.First_lightClient"
+    ],
+    "main": [
+      "io.github.jamie137.first_light.First_light"
+    ]
+  },
+  "mixins": [
+    "first_light.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
