@@ -16,7 +16,9 @@ public class ChargedCruxItem extends Item {
     public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
 
         if (slot == EquipmentSlot.OFFHAND) {
-            System.out.println("in offhand");
+            if (!entity.isOnGround()) {
+                
+            }
         }
 
         super.inventoryTick(stack, world, entity, slot);
